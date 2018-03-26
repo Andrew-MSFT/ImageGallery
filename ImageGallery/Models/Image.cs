@@ -8,8 +8,9 @@ namespace ImageGallery.Models
 {
     public class Image
     {
-        public Guid ImageGuid { get; set; }
-        public Uri ImagePath { get; set; }
+        public string FileName { get; set; }
+        //public Guid ImageGuid { get; set; }
+        public string ImagePath { get; set; }
         public ICollection<Face> FaceAttributes { get; set; }
     }
 }

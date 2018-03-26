@@ -10,7 +10,7 @@ namespace ImageGallery.Services
     public interface IStorageService
     {
         Task<IEnumerable<Image>> GetImagesAsync();
-        Task<Image> AddImageAsync(Stream stream, string fileExtension);
-        Task AddMetadataAsync(Image image, Face[] faces);
+        Task<Image> AddImageAsync(Stream stream, string fileName);
+        //Task AddMetadataAsync(Image image, Face[] faces);
     }
 }

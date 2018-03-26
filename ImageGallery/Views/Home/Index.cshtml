@@ -26,15 +26,6 @@
             {
             <div class="card">
                 <img class="lazy" data-src="@image.ImagePath" />
-                @foreach (var face in image.FaceAttributes)
-                {
-                    <div>
-                        <p><strong><em>Face @face.FaceId</em></strong></p>
-                        <p>Age: @face.FaceAttributes.Age</p>
-                        <p>Gender: @face.FaceAttributes.Gender</p>
-                        <p>Hair: @String.Join(",", @face.FaceAttributes.Hair.HairColor.Select(hc => "(" + hc.Color + ": " + hc.Confidence + ")"))</p>
-                    </div>
-                }
             </div>
             }
         </div>

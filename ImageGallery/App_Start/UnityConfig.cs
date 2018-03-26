@@ -39,8 +39,8 @@ namespace ImageGallery
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterSingleton<IStorageService, StorageService>();
-            container.RegisterSingleton<ICognitiveService, CognitiveService>();
+            container.RegisterSingleton<IStorageService, AzStorageService>();
+            //container.RegisterSingleton<IStorageService, LocalStorageService>();
             container.RegisterType<HttpClient, HttpClient>(new ContainerControlledLifetimeManager(), new InjectionConstructor());
         }
     }

@@ -12,12 +12,10 @@ namespace ImageGallery.Controllers
     public class HomeController : Controller
     {
         private readonly IStorageService _storageService;
-        private readonly ICognitiveService _cognitiveService;
 
-        public HomeController(IStorageService storageService, ICognitiveService cognitiveService)
+        public HomeController(IStorageService storageService)
         {
             _storageService = storageService;
-            _cognitiveService = cognitiveService;
         }
 
         public async Task<ActionResult> Index()
@@ -36,13 +34,7 @@ namespace ImageGallery.Controllers
 
             try
             {
-                var fileExtension = Path.GetExtension(file.FileName);
-
-                var image = await _storageService.AddImageAsync(file.InputStream, fileExtension);
-
-                var faces = await _cognitiveService.UploadAndDetectFaces(image.ImagePath);
-
-                await _storageService.AddMetadataAsync(image, faces);
+                var image = await _storageService.AddImageAsync(file.InputStream, file.FileName);
             }
             catch (Exception e)
             {
